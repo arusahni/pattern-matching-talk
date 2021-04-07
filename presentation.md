@@ -143,7 +143,7 @@ if (
 
 ```python
 match payload:
-    case Person(age=int(age)) if age < 13:
+    case {"$type": "person", "data": { "age": int(age) }} if age < 13:
         ...
 ```
 
@@ -156,7 +156,7 @@ match payload:
         * Deterministic Context Free Grammar (DCFG)
     * If the token `match` is encountered, Python 3.8 would assume it was a variable
     * To turn it into a keyword, the variable name must be removed from the language
-    * This happend with async, and broke code that used `async` as a name.
+    * This happened with async, and broke code that used `async` as a name.
 
 * Introduced in Python 3.9
     * tl;dr: when trying to read source code, Python can now try different options, moving
@@ -164,8 +164,6 @@ match payload:
     * If the token `match` is encountered, Python 3.10 can first see if it's the start of a `match`
       statement, and will treat it like a keyword. Otherwise, it'll treat it like a name.
     * This way, introducing new keywords will be backwards compatible.
-
-DEMO
 
 ---
 
@@ -200,7 +198,7 @@ point := match user_input:
     case (x, y, z):
         Point(x, y, z)
     case _:
-        Point(0, 0)
+        Point(0, 0, 0)
 ```
 
 ---
