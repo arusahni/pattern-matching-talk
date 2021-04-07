@@ -1,6 +1,6 @@
 ---
 title: Pattern Matching
-author: Aru Sahni
+author: Aru Sahni (@IAmAru)
 ...
 
 # A Problem?
@@ -111,7 +111,23 @@ How do we avoid this? This isn't a problem unique to Python.
 
 Elixir:
 
+```elixir
+case {4, 5, 6} do
+    {4, 5} -> "One"
+    {4, 5, x} -> "Two #{x}"
+    _ -> "Three"
+end
+```
+
 Rust:
+
+```rust
+match x {
+    0 | 1  => "not many",
+    2 ..= 9 => "a few",
+    _      => "lots"
+};
+```
 
 ---
 
@@ -149,18 +165,20 @@ match payload:
       statement, and will treat it like a keyword. Otherwise, it'll treat it like a name.
     * This way, introducing new keywords will be backwards compatible.
 
+DEMO
+
 ---
 
 ## Message handler
 
 Python 3.9
 ```bash
-docker run -it -v ${PWD}:/root/ --rm python:3.10-rc-buster-meetup python3 /root/python39.py
+docker run -it -v ${PWD}:/root/ --rm arusahni/python:3.10-rc-buster-meetup python3 /root/python39.py
 ```
 
 Python 3.10
 ```bash
-docker run -it -v ${PWD}:/root/ --rm python:3.10-rc-buster-meetup python3 /root/python310.py
+docker run -it -v ${PWD}:/root/ --rm arusahni/python:3.10-rc-buster-meetup python3 /root/python310.py
 ```
 
 ---
